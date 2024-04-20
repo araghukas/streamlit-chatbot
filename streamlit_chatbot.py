@@ -26,6 +26,7 @@ MAX_RESPONSE_TOKENS = 275
 
 st.set_page_config(
     page_title="Canadian Chatbot Curtis",
+    layout="wide",
 )
 
 
