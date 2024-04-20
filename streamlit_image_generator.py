@@ -6,12 +6,15 @@ import streamlit as st
 from PIL import Image
 from st_keyup import st_keyup
 
+DEFAULT_PROMPT = "A beautiful sunset over the ocean."
+
 # Initialize session state
 if "last_prompt" not in st.session_state:
     st.session_state["last_prompt"] = ""
 
 # Constants
 SEED = 2
+
 
 def _check_address():
     if not st.session_state.get("api_address"):
@@ -20,7 +23,7 @@ def _check_address():
 
 
 def make_image(prompt, address):
-    if err := _check_address():
+    if prompt != DEFAULT_PROMPT and (err := _check_address()):
         st.error(err)
         return None
 
@@ -61,7 +64,7 @@ user_prompt = st_keyup(
     "Enter a prompt:",
     key="0",
     debounce=300,
-    value="An abstract painting of a mountain landscape",
+    value=DEFAULT_PROMPT,
 )
 if user_prompt and user_prompt != st.session_state["last_prompt"]:
     st.session_state["last_prompt"] = user_prompt
