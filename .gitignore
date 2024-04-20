@@ -2,3 +2,8 @@
 !.gitignore
 !requirements.txt
 !*.py
+!*.png
+!app_assets/*
+!.streamlit/*
+
+!*/
