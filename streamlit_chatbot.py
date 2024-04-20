@@ -26,7 +26,7 @@ MAX_RESPONSE_TOKENS = 275
 DEFAULT_API_ADDRESS = ""
 
 st.set_page_config(
-    page_title="Canadian Chatbot Curtis",
+    page_title="Canadian Chatbot: Curtis",
     layout="wide",
 )
 
