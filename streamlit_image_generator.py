@@ -6,14 +6,13 @@ import streamlit as st
 from PIL import Image
 from st_keyup import st_keyup
 
-DEFAULT_PROMPT = "A beautiful sunset over the ocean."
-
 # Initialize session state
 if "last_prompt" not in st.session_state:
     st.session_state["last_prompt"] = ""
 
 # Constants
 SEED = 2
+DEFAULT_API_ADDRESS = ""
 
 
 def _check_address():
@@ -23,7 +22,7 @@ def _check_address():
 
 
 def make_image(prompt, address):
-    if prompt != DEFAULT_PROMPT and (err := _check_address()):
+    if err := _check_address():
         st.error(err)
         return None
 
@@ -51,7 +50,7 @@ st.set_page_config(
 # Sidebar for settings
 with st.sidebar:
     st.title("Settings")
-    st.text_input("API Address", key="api_address")
+    st.text_input("API Address", DEFAULT_API_ADDRESS, key="api_address")
     logo = Image.open("./app_assets/logo.png")
     st.caption("AI powered by")
     st.image(logo, output_format="PNG")
@@ -64,7 +63,6 @@ user_prompt = st_keyup(
     "Enter a prompt:",
     key="0",
     debounce=300,
-    value=DEFAULT_PROMPT,
 )
 if user_prompt and user_prompt != st.session_state["last_prompt"]:
     st.session_state["last_prompt"] = user_prompt

@@ -23,6 +23,7 @@ from the chat history.
 # Defaults
 MEMORY_LENGTH = 50
 MAX_RESPONSE_TOKENS = 275
+DEFAULT_API_ADDRESS = ""
 
 st.set_page_config(
     page_title="Canadian Chatbot Curtis",
@@ -139,12 +140,12 @@ def bot_respond(prompt):
         with st.spinner("Generating..."):
             response = get_bot_response(prompt)
 
-        if any(response):
+        if response:
             with st.chat_message("assistant"):
                 st.markdown(response)
 
     # Add assistant response to chat log
-    if any(response):
+    if response:
         st.session_state.messages.append(
             {"role": "assistant", "content": response}
         )
@@ -167,11 +168,9 @@ STREAM = st.toggle("Streaming Mode", True)
 
 with st.sidebar:
     st.title("Settings")
-    st.text_input("API Address", key="bot_address")
-    st.slider("Memory Length", 0, 99, MEMORY_LENGTH,
-              key="memory_length", on_change=_shift_memory)
-    st.slider("Max Response Tokens", 50, 500, MAX_RESPONSE_TOKENS,
-              key="max_response_tokens")
+    st.text_input("API Address", DEFAULT_API_ADDRESS, key="bot_address")
+    st.slider("Memory Length", 0, 99, MEMORY_LENGTH, key="memory_length", on_change=_shift_memory)
+    st.slider("Max Response Tokens", 50, 500, MAX_RESPONSE_TOKENS, key="max_response_tokens")
     logo = Image.open("./app_assets/logo.png")
     st.caption("AI powered by")
     st.image(logo, output_format="PNG")
