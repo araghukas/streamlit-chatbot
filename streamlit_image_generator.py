@@ -21,14 +21,14 @@ def _check_address():
     return None
 
 
-def make_image(prompt, address):
+def make_image(_prompt, address):
     if err := _check_address():
         st.error(err)
         return None
 
     address = address.strip()
     try:
-        response = requests.post(address + "/text-to-image", json={"prompt": prompt})
+        response = requests.post(address + "/text-to-image", json={"prompt": _prompt})
         response.raise_for_status()
     except Exception:
         st.error(f"Error: Failed to get image from '{address}'")
