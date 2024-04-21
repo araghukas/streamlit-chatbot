@@ -26,20 +26,16 @@ def make_image(prompt, address):
         st.error(err)
         return None
 
+    address = address.strip()
     try:
-        response = requests.post(
-            address + "/text-to-image",
-            json={"prompt": prompt},
-            timeout=30
-        )
+        response = requests.post(address + "/text-to-image", json={"prompt": prompt})
         response.raise_for_status()
     except Exception:
         st.error(f"Error: Failed to get image from '{address}'")
         return None
 
     image_arr = io.BytesIO(base64.b64decode(response.json()))
-    _img = Image.open(image_arr)
-    return _img
+    return Image.open(image_arr)
 
 
 st.set_page_config(
