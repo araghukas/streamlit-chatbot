@@ -37,9 +37,9 @@ def make_image(prompt, address):
         st.error(f"Error: Failed to get image from '{address}'")
         return None
 
-    image_arr = io.BytesIO(base64.b64decode(response.text))
-    img = Image.open(image_arr)
-    return img
+    image_arr = io.BytesIO(base64.b64decode(response.json()))
+    _img = Image.open(image_arr)
+    return _img
 
 
 st.set_page_config(
