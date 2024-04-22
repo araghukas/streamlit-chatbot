@@ -8,7 +8,7 @@ from st_keyup import st_keyup
 
 # Initialize session state
 if "last_prompt" not in st.session_state:
-    st.session_state["last_prompt"] = ""
+    st.session_state["last_prompt"] = "iris flowers growing on a hillside"
 
 # Constants
 SEED = 2
