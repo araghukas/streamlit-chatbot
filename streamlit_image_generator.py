@@ -12,7 +12,7 @@ if "last_prompt" not in st.session_state:
 
 # Constants
 SEED = 2
-DEFAULT_API_ADDRESS = "https://fn.int.covalent.xyz/16625e709cf66a4efc5fcd3fc"
+DEFAULT_API_ADDRESS = "https://fn.int.covalent.xyz/16626737bcf66a4efc5fcd414"
 
 
 def _check_address():
