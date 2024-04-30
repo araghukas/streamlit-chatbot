@@ -23,7 +23,8 @@ from the chat history.
 # Defaults
 MEMORY_LENGTH = 50
 MAX_RESPONSE_TOKENS = 275
-DEFAULT_API_ADDRESS = "https://fn.int.covalent.xyz/26625e016b9efcd1af1292185"
+DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/166312e9ef7d37dbf2a46843f"
+DEFAULT_API_TOKEN = "QpBpvHfUQd-S3Mru-DmQvD0BijID50qdNbLmhTU25gQm9TduSl5mirf-ERKTihCgMoMY9mA7R0biasByR6nTjw"
 
 st.set_page_config(
     page_title="Canadian Chatbot: Curtis",
@@ -85,6 +86,8 @@ def get_bot_response(user_input):
     """This is the for non-streaming"""
     complete_prompt = _format_prompt_with_history(user_input)
 
+    headers = {"x-api-key": DEFAULT_API_TOKEN}
+
     params = {
         "prompt": complete_prompt,
         "max_new_tokens": st.session_state.max_response_tokens,
@@ -94,7 +97,7 @@ def get_bot_response(user_input):
     ################################
     url = st.session_state.bot_address.strip() + "/generate"
     try:
-        r = requests.post(url, json=params, timeout=30)
+        r = requests.post(url, json=params, headers=headers, timeout=30)
         r.raise_for_status()
     except Exception:
         st.error("Failed to get response. Invalid address?")
@@ -105,6 +108,9 @@ def get_bot_response(user_input):
 def stream_bot_response(user_input):
     """This is for streaming"""
     complete_prompt = _format_prompt_with_history(user_input)
+
+    headers = {"x-api-key": DEFAULT_API_TOKEN}
+
     params = {
         "prompt": complete_prompt,
         "max_new_tokens": st.session_state.max_response_tokens,
@@ -114,7 +120,7 @@ def stream_bot_response(user_input):
     ################################
     url = st.session_state.bot_address.strip() + "/stream"
     try:
-        r = requests.post(url, json=params, stream=True, timeout=120)
+        r = requests.post(url, json=params, headers=headers, stream=True, timeout=120)
         r.raise_for_status()
     except Exception:
         st.error("Failed to stream response. Invalid address?")
