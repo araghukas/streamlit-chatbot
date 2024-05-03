@@ -12,8 +12,8 @@ if "last_prompt" not in st.session_state:
 
 # Constants
 SEED = 2
-DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/166312eabf7d37dbf2a468442"
-DEFAULT_API_KEY = "22uyOtN4t5IOQ4h2LXvymWCyc4ngF0XCE2BJg86dsEigwYBjjEsqLvGV-ivMqTZemUmrWsgRtePxSU5X5e-QtQ"
+DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/1663527e4f7d37dbf2a46857d"
+DEFAULT_API_KEY = "HSgEdZg42hAF6RptskmCccbGRlOzikDNFFICWeQRFE-Str49ES1AUiclqZr4nlNwtUjnW7aTi8eZRy6bTJuyzA"
 
 
 def _check_address():
@@ -29,8 +29,9 @@ def make_image(_prompt, address):
 
     address = address.strip()
     headers = {"x-api-key": DEFAULT_API_KEY}
+    json_ = {"prompt": _prompt, "num_inference_steps": 1}
     try:
-        response = requests.post(address + "/text-to-image", json={"prompt": _prompt}, headers=headers)
+        response = requests.post(address + "/text-to-image", json=json_, headers=headers)
         response.raise_for_status()
     except Exception:
         st.error(f"Error: Failed to get image from '{address}'")
