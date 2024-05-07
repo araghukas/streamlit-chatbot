@@ -46,7 +46,7 @@ st.set_page_config(
     # layout="wide"
 )
 
-left, middle, last = st.columns([1, 6, 1])
+left, middle, last = st.columns([1, 10, 1])
 
 # Sidebar for settings
 with st.sidebar:
