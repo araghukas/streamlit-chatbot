@@ -29,7 +29,7 @@ def make_image(_prompt, address):
 
     address = address.strip()
     headers = {"x-api-key": DEFAULT_API_KEY}
-    json_ = {"prompt": _prompt, "num_inference_steps": 3}
+    json_ = {"prompt": _prompt, "num_inference_steps": 1}
     try:
         response = requests.post(address + "/text-to-image", json=json_, headers=headers)
         response.raise_for_status()
@@ -71,11 +71,13 @@ with middle:
         st.session_state["last_prompt"] = user_prompt
         prompt = f"<random seed {SEED}> {user_prompt}"
         img = make_image(prompt, st.session_state.api_address)
-        if img:
-            st.image(
-                img,
-                caption=user_prompt,
-                use_column_width=False,
-                output_format="JPEG",
-                width=500,
-            )
+        _, col, _ = st.columns([1, 40, 1])
+        with col:
+            if img:
+                st.image(
+                    img,
+                    caption=user_prompt,
+                    use_column_width=False,
+                    output_format="JPEG",
+                    width=500,
+                )
