@@ -43,7 +43,7 @@ def make_image(_prompt, address):
 
 st.set_page_config(
     page_title="Real-Time Image Generation",
-    layout="wide"
+    # layout="wide"
 )
 
 # Sidebar for settings
