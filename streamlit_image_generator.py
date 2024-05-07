@@ -56,10 +56,11 @@ with st.sidebar:
     st.caption("AI powered by")
     st.image(logo, output_format="PNG")
 
-# Main content area
-st.title("Real-Time Image Generator")
-
 with middle:
+
+    # Main content area
+    st.title("Real-Time Image Generator")
+
     # Prompt input and image display
     user_prompt = st_keyup(
         "Enter a prompt:",
