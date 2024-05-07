@@ -132,9 +132,10 @@ def stream_bot_response(user_input):
             if s:
                 buffer.append(s)
                 if len(buffer) > 5:
-                    output = re.sub(r'\*[^*]+\*', '', "".join(buffer))
+                    raw_output = "".join(buffer)
+                    output = re.sub(r'\*[^*]+\*', '', raw_output)
                     output = re.sub(r'\*[^*]+\b|\b[^*]+\*', '', output)
-                    buffer = []
+                    buffer = [raw_output.replace(output, '')]
                     yield output
 
 
