@@ -29,7 +29,7 @@ def make_image(_prompt, address):
 
     address = address.strip()
     headers = {"x-api-key": DEFAULT_API_KEY}
-    json_ = {"prompt": _prompt, "num_inference_steps": 5}
+    json_ = {"prompt": _prompt, "num_inference_steps": 1}
     try:
         response = requests.post(address + "/text-to-image", json=json_, headers=headers)
         response.raise_for_status()
