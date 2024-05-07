@@ -131,7 +131,7 @@ def stream_bot_response(user_input):
             s = s.replace('�', '')  # streaming breaks emojis 😭
             if s:
                 buffer.append(s)
-                if len(buffer > 5):
+                if len(buffer) > 5:
                     output = re.sub(r'\*[^*]+\*', '', "".join(buffer))
                     output = re.sub(r'\*[^*]+\b|\b[^*]+\*', '', output)
                     buffer = []
