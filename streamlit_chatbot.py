@@ -119,7 +119,6 @@ def stream_bot_response(user_input):
     # POST REQUEST TO FUNCTION SERVE
     ################################
     url = st.session_state.bot_address.strip() + "/stream"
-    buffer = []
     try:
         r = requests.post(url, json=params, headers=headers, stream=True, timeout=120)
         r.raise_for_status()
@@ -130,13 +129,7 @@ def stream_bot_response(user_input):
             s = t.decode()
             s = s.replace('�', '')  # streaming breaks emojis 😭
             if s:
-                buffer.append(s)
-                if len(buffer) > 5:
-                    raw_output = "".join(buffer)
-                    output = re.sub(r'\*[^*]+\*', '', raw_output)
-                    output = re.sub(r'\*[^*]+\b|\b[^*]+\*', '', output)
-                    buffer = [raw_output.replace(output, '')]
-                    yield output
+                yield s
 
 
 def bot_respond(prompt):
