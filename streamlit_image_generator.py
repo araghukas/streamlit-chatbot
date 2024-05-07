@@ -46,6 +46,8 @@ st.set_page_config(
     # layout="wide"
 )
 
+left, middle, last = st.columns([1, 6, 1])
+
 # Sidebar for settings
 with st.sidebar:
     st.title("Settings")
@@ -68,10 +70,11 @@ if user_prompt and user_prompt != st.session_state["last_prompt"]:
     prompt = f"<random seed {SEED}> {user_prompt}"
     img = make_image(prompt, st.session_state.api_address)
     if img:
-        st.image(
-            img,
-            caption=user_prompt,
-            use_column_width=False,
-            output_format="JPEG",
-            width=500,
-        )
+        with middle:
+            st.image(
+                img,
+                caption=user_prompt,
+                use_column_width=False,
+                output_format="JPEG",
+                width=500,
+            )
