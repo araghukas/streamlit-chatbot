@@ -73,5 +73,5 @@ if user_prompt and user_prompt != st.session_state["last_prompt"]:
             caption=user_prompt,
             use_column_width=False,
             output_format="JPEG",
-            width=600,
+            width=550,
         )
