@@ -59,18 +59,18 @@ with st.sidebar:
 # Main content area
 st.title("Real-Time Image Generator")
 
-# Prompt input and image display
-user_prompt = st_keyup(
-    "Enter a prompt:",
-    key="0",
-    debounce=300,
-)
-if user_prompt and user_prompt != st.session_state["last_prompt"]:
-    st.session_state["last_prompt"] = user_prompt
-    prompt = f"<random seed {SEED}> {user_prompt}"
-    img = make_image(prompt, st.session_state.api_address)
-    if img:
-        with middle:
+with middle:
+    # Prompt input and image display
+    user_prompt = st_keyup(
+        "Enter a prompt:",
+        key="0",
+        debounce=300,
+    )
+    if user_prompt and user_prompt != st.session_state["last_prompt"]:
+        st.session_state["last_prompt"] = user_prompt
+        prompt = f"<random seed {SEED}> {user_prompt}"
+        img = make_image(prompt, st.session_state.api_address)
+        if img:
             st.image(
                 img,
                 caption=user_prompt,
