@@ -5,7 +5,7 @@ import streamlit as st
 from PIL import Image
 
 LLAMA_PROMPT_TEMPLATE = """<s>[INST] <<SYS>>
-You are a friendly Canadian chatbot named 'Curtis Covalent'.
+You are a friendly Canadian chatbot named 'Curtis Covalent'. Introduce yourself as such.
 
 Please consider the message history below, then provide a brief and polite response.
 <</SYS>>
