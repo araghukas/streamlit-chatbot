@@ -12,8 +12,8 @@ if "last_prompt" not in st.session_state:
 
 # Constants
 SEED = 2
-DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/2666caa5f0e52d71b97f88f20"
-DEFAULT_API_KEY = "J0CviR7usFpdET8YvCyxDMVQW5dAKLUWaS1q2ZOd1a6p7CWkvdadg5DlFwXE2t0FLZ9QqASlzPBrSnfzU52e4A"
+DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/1666cafad0e52d71b97f88f27"
+DEFAULT_API_KEY = "UM6aT6LAk52d2E_DeHpG0TXIG30FPjNgnfcRuyVjUhY_1dWfHrfqKt52dgaBcyEcVjHONFi6zR_Z6GjaP9v-cQ"
 
 
 def _check_address():
