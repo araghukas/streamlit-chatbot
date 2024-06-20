@@ -12,8 +12,8 @@ if "last_prompt" not in st.session_state:
 
 # Constants
 SEED = 2
-DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/0666ccf3e0e52d71b97f88f35"
-DEFAULT_API_KEY = "9va8arYYkARRGQiUDOfVuiWCdH0AEaSFsHyeEa4KjOWWD9gaIryR4JviZmPDfURfdHTyWvlKeNeU1oA9kEKjMQ"
+DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/16674be34a1a393eb38302cda"
+DEFAULT_API_KEY = "T8UQA7aUbeZf3h38mrh7Y-0I1pW97ekk1wwgG1c4NGgtwRLwwsRmxpx0toluvsiewtIJq2sNdlLq8QUNTXSBkw"
 
 
 def _check_address():
@@ -23,6 +23,7 @@ def _check_address():
 
 
 def make_image(_prompt, address):
+    """Send request to Covalent Function service API to generate image from text prompt"""
     if err := _check_address():
         st.error(err)
         return None
@@ -32,7 +33,8 @@ def make_image(_prompt, address):
     json_ = {"prompt": _prompt, "num_inference_steps": 2}
     try:
         response = requests.post(
-            address + "/text-to-image", json=json_, headers=headers)
+            address + "/text-to-image", json=json_, headers=headers, timeout=60,
+        )
         response.raise_for_status()
     except Exception:
         st.error(f"Error: Failed to get image from '{address}'")
