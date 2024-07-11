@@ -12,7 +12,7 @@ if "last_prompt" not in st.session_state:
 
 # Constants
 SEED = 2
-DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/1667c59d1a1a393eb38302dd0"
+DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/166905dfc401789aa1f9cc2d4"
 DEFAULT_API_KEY = "maPBkinEZO7Deb079EA61vTpZh_u4mywe9xuKXb1JBgMuOpqDFEGEK21aF1qiR5zVNMR6HHgmRn6iLY5PcfPkA"
 
 

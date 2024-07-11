@@ -23,7 +23,7 @@ from the chat history.
 # Defaults
 MEMORY_LENGTH = 50
 MAX_RESPONSE_TOKENS = 275
-DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/1667c59d3a1a393eb38302dd1"
+DEFAULT_API_ADDRESS = "https://fn.prod.covalent.xyz/166905df6401789aa1f9cc2d1"
 DEFAULT_API_TOKEN = "6IgFyYZg1mdX2qYRbhKBlWgzYngy4if_fcbxrxmVYOw6xZBtfjlUffhtbuQhieqPOX6my2HbMH8NeUzHwihARQ"
 
 st.set_page_config(
