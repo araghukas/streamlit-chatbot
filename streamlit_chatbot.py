@@ -167,7 +167,7 @@ def bot_respond(prompt):
         _shift_memory()
 
 
-STREAM = st.toggle("Streaming Mode", True)
+STREAM = st.toggle("Streaming Mode", False)
 
 # BASED ON
 # https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps#build-a-simple-chatbot-gui-with-streaming
