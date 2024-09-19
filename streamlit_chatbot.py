@@ -23,8 +23,8 @@ from the chat history.
 # Defaults
 MEMORY_LENGTH = 50
 MAX_RESPONSE_TOKENS = 275
-DEFAULT_API_ADDRESS = "https://fn-c.prod.covalent.xyz/66e99bce46f8aef547616f11"
-DEFAULT_API_TOKEN = "h7OF99ig5WjQYl2gML9sAnl9eb9qKZ7gwTT9mmy3FodwnSoZ22l_YS2q3nFtJ3t5EjosqGQEmZsxuUVU74Ro9Q"
+DEFAULT_API_ADDRESS = "https://fn-c.prod.covalent.xyz/66ec4f6746f8aef547616f1c"
+DEFAULT_API_TOKEN = "jD972b-vc6IcI7gDqJa8j3wzadceI3oCCsm35d_d4pxegm5AX5E_veBp4MsnFvrtqM-7PaqyFL2u3vH75TQQwA"
 
 st.set_page_config(
     page_title="Canadian Chatbot: Curtis",
