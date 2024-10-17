@@ -65,7 +65,7 @@ def get_usca312_tsp_solution() -> None:
     print(f"Requesting solution from {url}")
     print(f"Token: ...{token[-5:]}")
     print(f"Inputs: {inputs}")
-    with st.spinner("Generating delays and solution..."):
+    with st.spinner("Generating delays and computing TSP solution..."):
         try:
             response = requests.post(
                 url,
@@ -281,12 +281,12 @@ st.text_input(
     value=TSP_URL,
     key="server_address"
 )
-st.text_input(
-    label="API Key",
-    value=TSP_TOKEN,
-    key="api_key",
-    type="password"
-)
+# st.text_input(
+#     label="API Key",
+#     value=TSP_TOKEN,
+#     key="api_key",
+#     type="password"
+# )
 
 st.caption("powered by")
 st.image(LOGO, output_format="PNG")
