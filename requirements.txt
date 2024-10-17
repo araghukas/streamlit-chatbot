@@ -1,0 +1,4 @@
+streamlit-keyup==0.2.4
+pydeck==0.9.1
+pillow==10.4.0
+pandas==2.2.2

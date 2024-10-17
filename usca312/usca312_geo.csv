@@ -1,0 +1,313 @@
+city,lat,lon
+"Abilene, TX",32.44645,-99.74759
+"Akron, OH",41.08306,-81.51848
+"Albany, NY",42.65117,-73.75497
+"Albuquerque, NM",35.0841,-106.65099
+"Alert, NT",82.49899,-62.35067
+"Allentown, PA",40.60221,-75.47128
+"Amarillo, TX",35.20729,-101.83712
+"Anchorage, AK",61.21631,-149.89485
+"Ann Arbor, MI",42.28137,-83.74846
+"Asheville, NC",35.59536,-82.55084
+"Ashland, KY",38.47841,-82.63794
+"Atlanta, GA",33.74899,-84.39026
+"Atlantic City, NJ",39.36429,-74.42294
+"Augusta, GA",33.47097,-81.97484
+"Augusta, ME",44.31699,-69.77343
+"Austin, TX",30.27113,-97.7437
+"Bakersfield, CA",35.37387,-119.01946
+"Baltimore, MD",39.29088,-76.61076
+"Bangor, ME",44.80163,-68.77133
+"Baton Rouge, LA",30.44942,-91.18697
+"Battle Creek, MI",42.31925,-85.18243
+"Bay City, MI",43.59447,-83.88886
+"Beaumont, TX",30.08605,-94.10185
+"Belleville, ON",44.16333,-77.38526
+"Bellingham, WA",48.7544,-122.47884
+"Berkeley, CA",37.87084,-122.27286
+"Billings, MT",45.7875,-108.49607
+"Biloxi, MS",30.40076,-88.88938
+"Binghamton, NY",42.0987,-75.91252
+"Birmingham, AL",33.52068,-86.80243
+"Bismarck, ND",46.80833,-100.78374
+"Bloomington, IL",40.47978,-88.99391
+"Boise, ID",43.61662,-116.20089
+"Boston, MA",42.35543,-71.06051
+"Bowling Green, KY",36.99032,-86.4436
+"Brandon, MB",49.85111,-99.96089
+"Brantford, ON",43.14082,-80.26317
+"Brattleboro, VT",42.85076,-72.55729
+"Bridgeport, CT",41.17927,-73.18879
+"Brockton, MA",42.08343,-71.01838
+"Buffalo, NY",42.88672,-78.87839
+"Burlington, ON",43.32489,-79.79668
+"Burlington, VT",44.47616,-73.21291
+"Butte, MT",46.01315,-112.53651
+"Calgary, AB",51.04561,-114.05754
+"Cambridge, MA",42.36563,-71.104
+"Canton, OH",40.79855,-81.37495
+"Carson City, NV",39.1698,-119.75756
+"Cedar Rapids, IA",41.97589,-91.67041
+"Central Islip, NY",40.79065,-73.20178
+"Champaign, IL",40.11648,-88.24309
+"Charleston, SC",32.78844,-79.93993
+"Charleston, WV",38.3506,-81.63328
+"Charlotte, NC",35.22721,-80.84308
+"Charlottetown, PE",46.23495,-63.13294
+"Chattanooga, TN",35.04572,-85.30949
+"Cheyenne, WY",41.13998,-104.82025
+"Chicago, IL",41.87556,-87.62442
+"Churchill, MB",58.76931,-94.17368
+"Cincinnati, OH",39.10145,-84.51246
+"Cleveland, OH",41.49966,-81.69368
+"Colorado Springs, CO",38.83396,-104.82535
+"Columbia, MO",38.95188,-92.33374
+"Columbia, SC",34.00031,-81.03313
+"Columbus, GA",32.46107,-84.98804
+"Columbus, OH",39.96226,-83.00071
+"Concord, NH",43.20718,-71.53748
+"Corpus Christi, TX",27.76353,-97.40332
+"Dallas, TX",32.77627,-96.79686
+"Dawson, YT",64.06066,-139.43169
+"Dayton, OH",39.75895,-84.19161
+"Daytona Beach, FL",29.21081,-81.02283
+"Decatur, IL",39.84542,-88.95242
+"Denver, CO",39.73924,-104.98486
+"Des Moines, IA",41.58687,-93.62495
+"Detroit, MI",42.33155,-83.04664
+"Dodge City, KS",37.7528,-100.01708
+"Dubuque, IA",42.50062,-90.6648
+"Duluth, MN",46.77293,-92.12512
+"Durham, NC",35.99665,-78.90181
+"Eau Claire, WI",44.81135,-91.49849
+"Edmonton, AB",53.54621,-113.49124
+"Elizabeth, NJ",40.66399,-74.2107
+"El Paso, TX",31.76012,-106.48704
+"Enid, OK",36.39676,-97.87913
+"Erie, PA",42.12947,-80.08527
+"Eugene, OR",44.05051,-123.09505
+"Eureka, CA",40.79069,-124.16737
+"Evansville, IN",37.97049,-87.57156
+"Fairbanks, AK",64.83785,-147.71668
+"Fall River, MA",41.70106,-71.15464
+"Fargo, ND",46.87723,-96.78982
+"Flagstaff, AZ",35.19875,-111.65182
+"Flint, MI",43.01617,-83.69002
+"Ft Smith, AR",35.38803,-94.4265
+"Ft Wayne, IN",41.07999,-85.1386
+"Ft Worth, TX",32.75318,-97.33275
+"Fredericton, NB",45.96323,-66.64324
+"Fresno, CA",36.73944,-119.78483
+"Gadsden, AL",34.01283,-86.00303
+"Gainesville, FL",29.65197,-82.32498
+"Gallup, NM",35.52835,-108.74391
+"Galveston, TX",29.3057,-94.79333
+"Gary, IN",41.6021,-87.33706
+"Grand Junction, CO",39.06726,-108.56448
+"Grand Rapids, MI",42.96324,-85.66786
+"Great Falls, MT",47.50489,-111.29189
+"Green Bay, WI",44.51264,-88.01258
+"Greensboro, NC",36.07264,-79.79198
+"Greenville, SC",34.85135,-82.39849
+"Guelph, ON",43.54605,-80.24933
+"Gulfport, MS",30.36742,-89.09282
+"Halifax, NS",44.64862,-63.58595
+"Hamilton, OH",39.20854,-84.55019
+"Hamilton, ON",43.25608,-79.87286
+"Harrisburg, PA",40.26631,-76.88611
+"Hartford, CT",41.76458,-72.69085
+"Helena, MT",46.59274,-112.03628
+"Hilo, HI",19.70737,-155.08158
+"Honolulu, HI",21.30455,-157.85568
+"Houston, TX",29.75894,-95.3677
+"Huntsville, AL",34.72985,-86.5859
+"Indianapolis, IN",39.76833,-86.15835
+"Iowa City, IA",41.66126,-91.52991
+"Jackson, MI",42.24650,-84.40170
+"Jackson, MS",32.29987,-90.18304
+"Jacksonville, FL",30.33218,-81.65565
+"Jersey City, NJ",40.72157,-74.04745
+"Johnstown, PA",40.32674,-78.92197
+"Joplin, MO",37.08418,-94.51334
+"Juneau, AK",58.30195,-134.41973
+"Kalamazoo, MI",42.29171,-85.58723
+"Kansas City, KS",39.11346,-94.6265
+"Kansas City, MO",39.1001,-94.57814
+"Kenosha, WI",42.58468,-87.82123
+"Key West, FL",24.55483,-81.80207
+"Kingston, ON",44.23069,-76.48132
+"Kitchener, ON",43.45129,-80.49278
+"Knoxville, TN",35.96039,-83.92103
+"Lafayette, IN",40.41912,-86.8919
+"Lancaster, PA",40.08067,-76.24113
+"Lansing, MI",42.73383,-84.55463
+"Laredo, TX",27.50563,-99.50745
+"Las Vegas, NV",36.16726,-115.14852
+"Lawrence, MA",42.70704,-71.16311
+"Lethbridge, AB",49.69458,-112.8331
+"Lexington, KY",38.04641,-84.49704
+"Lihue, HI",21.97696,-159.36877
+"Lima, OH",40.74173,-84.11565
+"Lincoln, NE",40.80889,-96.70778
+"Little Rock, AR",34.74651,-92.28963
+"London, ON",42.98324,-81.24337
+"Los Angeles, CA",34.05369,-118.24277
+"Louisville, KY",38.25424,-85.75941
+"Lowell, MA",42.64144,-71.30853
+"Lubbock, TX",33.58557,-101.84702
+"Macon, GA",32.84069,-83.6324
+"Madison, WI",43.07476,-89.38376
+"Manchester, NH",42.99564,-71.45479
+"Marshall, TX",32.54478,-94.3661
+"Medicine Hat, AB",50.04303,-110.67902
+"Memphis, TN",35.14602,-90.05176
+"Meriden, CT",41.53815,-72.80704
+"Miami, FL",25.77417,-80.19362
+"Milwaukee, WI",43.03865,-87.90908
+"Minneapolis, MN",44.9773,-93.26547
+"Minot, ND",48.23251,-101.29627
+"Mobile, AL",30.69135,-88.04375
+"Moncton, NB",46.09857,-64.80043
+"Montgomery, AL",32.36697,-86.30065
+"Montpelier, VT",44.26022,-72.57504
+"Montreal, QC",45.50318,-73.56981
+"Moose Jaw, SK",50.40152,-105.54291
+"Muncie, IN",40.19369,-85.38653
+"Nashville, TN",36.16228,-86.7743
+"Natchez, MS",31.56041,-91.40317
+"Newark, NJ",40.73566,-74.17237
+"New Britain,CT",41.66121,-72.77954
+"New Haven, CT",41.30821,-72.92505
+"New Orleans, LA",29.976,-90.07821
+"New York, NY",40.71273,-74.00602
+"Niagara Falls, ON",43.10656,-79.0639
+"Nome, AK",64.49751,-165.40617
+"Norfolk, VA",36.84937,-76.28995
+"North Bay, ON",46.30921,-79.46076
+"Oakland, CA",37.80446,-122.27136
+"Ogden, UT",41.223,-111.97384
+"Oklahoma City, OK",35.47299,-97.51705
+"Omaha, NE",41.25875,-95.93838
+"Orlando, FL",28.54211,-81.37903
+"Ottawa, ON",45.42088,-75.69011
+"Paducah, KY",37.08339,-88.60005
+"Pasadena, CA",34.14765,-118.14415
+"Paterson, NJ",40.91677,-74.17181
+"Pensacola, FL",30.42131,-87.21691
+"Peoria, IL",40.69386,-89.5891
+"Peterborough, ON",44.3048,-78.31995
+"Philadelphia, PA",39.95272,-75.16353
+"Phoenix, AZ",33.44844,-112.07414
+"Pierre, SD",44.36836,-100.35114
+"Pittsburgh, PA",40.44169,-79.99009
+"Pittsfield, MA",42.4513,-73.26002
+"Pocatello, ID",42.86203,-112.45063
+"Port Arthur, TX",29.87166,-93.93323
+"Portland, ME",43.65736,-70.25866
+"Portland, OR",45.52025,-122.67419
+"Portsmouth, NH",43.07644,-70.75739
+"Portsmouth, VA",36.83201,-76.2977
+"Prince Rupert, BC",54.31266,-130.32549
+"Providence, RI",41.82399,-71.41283
+"Provo, UT",40.23373,-111.65871
+"Pueblo, CO",38.264,-104.61419
+"Quebec City, QC",46.81374,-71.20841
+"Racine, WI",42.72605,-87.78252
+"Raleigh, NC",35.7804,-78.6391
+"Rapid City, SD",44.0806,-103.22802
+"Reading, PA",40.33534,-75.92795
+"Regina, SK",50.44797,-104.61588
+"Reno, NV",39.52612,-119.81266
+"Richmond, VA",37.53851,-77.43428
+"Roanoke, VA",37.27097,-79.94143
+"Rochester, MN",44.02344,-92.46302
+"Rochester, NY",43.15729,-77.61521
+"Rockford, IL",42.27139,-89.09397
+"Sacramento, CA",38.58106,-121.49389
+"Saginaw, MI",43.33269,-84.04684
+"Saint Catherines, ON",43.15798,-79.24410
+"Saint Cloud, MN",45.56161,-94.1642
+"Saint John, NB",45.2788,-66.05852
+"Saint John's, NF",47.56147,-52.71262
+"Saint Joseph, MO",39.76861,-94.84663
+"Saint Louis, MO",38.62803,-90.19102
+"Saint Paul, MN",44.94975,-93.0931
+"Saint Petersburg, FL",27.77005,-82.63591
+"Salem, OR",44.93916,-123.03312
+"Salina, KS",38.84028,-97.61142
+"Salt Lake City, UT",40.75962,-111.8868
+"San Antonio, TX",29.4246,-98.49514
+"San Bernardino, CA",34.8253,-116.08331
+"San Diego, CA",32.71742,-117.16277
+"San Francisco, CA",37.77926,-122.41933
+"San Jose, CA",37.33617,-121.89059
+"San Juan, PR",18.4653,-66.11667
+"Santa Barbara, CA",34.42213,-119.70267
+"Santa Cruz, CA",37.0501,-121.99059
+"Santa Fe, NM",35.68761,-105.93846
+"Sarasota, FL",27.33658,-82.53085
+"Saskatoon, SK",52.1318,-106.66077
+"Sault Ste Marie, ON",46.51266,-84.33303
+"Savannah, GA",32.07901,-81.09213
+"Schenectady, NY",42.81424,-73.93957
+"Seattle, WA",47.60383,-122.33006
+"Sheboygan, WI",43.7129,-87.93704
+"Sherbrooke, QC",45.40327,-71.88904
+"Sheridan, WY",44.79475,-106.82227
+"Shreveport, LA",32.51354,-93.74778
+"Sioux City, IA",42.49668,-96.40588
+"Sioux Falls, SD",43.5476,-96.72936
+"South Bend, IN",41.68338,-86.25001
+"Spartanburg, NC",35.29063,-82.42788
+"Spokane, WA",47.65719,-117.42351
+"Springfield, IL",39.79902,-89.64396
+"Springfield, MA",42.10188,-72.58867
+"Springfield, MO",37.20817,-93.29227
+"Springfield, OH",39.9234,-83.81014
+"Stamford, CT",41.05343,-73.53873
+"Steubenville, OH",40.36007,-80.6151
+"Stockton, CA",37.9577,-121.29078
+"Sudbury, ON",46.49272,-80.99121
+"Superior, WI",46.72077,-92.10408
+"Syndey, NS",46.13639,-60.19556
+"Syracuse, NY",43.04812,-76.14742
+"Tacoma, WA",47.2455,-122.43833
+"Tallahassee, FL",30.43808,-84.28093
+"Tampa, FL",27.94776,-82.45844
+"Terre Haute, IN",39.4667,-87.41391
+"Texarkana, TX",33.44667,-94.07715
+"Thunder Bay, ON",48.40641,-89.2598
+"Timmins, ON",48.47747,-81.33041
+"Toledo, OH",41.65291,-83.53782
+"Topeka, KS",39.04901,-95.67756
+"Toronto, ON",43.65348,-79.38393
+"Trenton, NJ",40.22031,-74.7659
+"Trois-Rivieres, QC",46.34323,-72.54285
+"Troy, NY",42.72841,-73.69179
+"Tucson, AZ",32.22288,-110.97485
+"Tulsa, OK",36.15631,-95.99275
+"Urbana, IL",40.11172,-88.2073
+"Utica, NY",43.1009,-75.23266
+"Vancouver, BC",49.26087,-123.11395
+"Victoria, BC",48.42832,-123.36495
+"Waco, TX",31.54919,-97.14746
+"Walla Walla, WA",46.06673,-118.33934
+"Washington, DC",38.89504,-77.03654
+"Waterloo, IA",42.49827,-92.33287
+"West Palm Beach, FL",26.71536,-80.05329
+"Wheeling, WV",40.06396,-80.72091
+"Whitehorse, YK",60.76567,-135.14421
+"White Plains, NY",41.03399,-73.76291
+"Wichita, KS",37.69224,-97.33754
+"Wilkes-Barre, PA",41.24648,-75.88173
+"Wilmington, DE",39.74595,-75.54659
+"Wilmington, NC",34.22573,-77.94471
+"Windsor, ON",42.31674,-83.03734
+"Winnipeg, MB",49.89554,-97.13846
+"Winston-Salem, NC",36.09981,-80.24405
+"Worcester, MA",42.26256,-71.80189
+"Yakima, WA",46.60156,-120.51084
+"Yellowknife, NT",62.45408,-114.37739
+"Youngstown, OH",41.10358,-80.65202
+"Yuma, AZ",32.72327,-114.618
+"Zanesville, OH",39.94014,-82.00502

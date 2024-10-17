@@ -1,0 +1,5 @@
+[theme]
+base="dark"
+
+[mapbox]
+token="pk.eyJ1IjoiYXJhLWFxIiwiYSI6ImNtMjNkOWpyMjA0a3Eya29pa3lzOHBneHIifQ.EZaa-l-AsL4dGoqqvRUfww"
