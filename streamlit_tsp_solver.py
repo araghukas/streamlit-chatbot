@@ -253,8 +253,8 @@ with middle:
     )
 with right:
     # MAP SETTINGS
-    st.toggle(label="Issues", value=True, key="show_issues", help="show issue edges inferred by the AI agent")
-    st.toggle(label="Optimal Path", value=True, key="show_optimal_path", help="show the shortest path with issues considered")
+    st.toggle(label="Issues", value=True, key="show_issues", help="(requires result) show issue edges inferred by the AI agent")
+    st.toggle(label="Optimal Path", value=True, key="show_optimal_path", help="(requires result) show the shortest path with issues considered")
     st.toggle(label="Default Path", value=False, key="show_default_path", help="show the default shortest path")
     st.container(height=118, border=False)
     st.slider(
