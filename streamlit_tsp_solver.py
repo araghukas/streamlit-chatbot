@@ -217,7 +217,7 @@ def render_issues() -> Optional[str]:
 #########################
 # MAIN APP IMPLEMENTATION
 #########################
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="AI-Assisted Routing")
 st.title("📍 AI-Assisted Routing", help=APP_DESCRIPTION)
 
 left, middle, right = st.columns([2, 3, 1])

@@ -45,7 +45,7 @@ def make_image(_prompt, address):
 
 
 st.set_page_config(
-    page_title="Real-Time Image Generation",
+    page_title="Real-Time Image Generator",
     # layout="wide"
 )
 
