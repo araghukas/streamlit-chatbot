@@ -33,7 +33,7 @@ def make_image(_prompt, address):
     json_ = {"prompt": _prompt, "num_inference_steps": 2}
     try:
         response = requests.post(
-            address + "/text-to-image", json=json_, headers=headers, timeout=60,
+            address + "/generate", json=json_, headers=headers, timeout=60,
         )
         response.raise_for_status()
     except Exception:
