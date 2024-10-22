@@ -12,9 +12,11 @@ Weave in Canadian culture, politeness, and humor into your responses, wherever p
 
 INFO_STRING = """Curtis is a simple chatbot that uses an inference API served by Covalent.
 
-The LLM is prompted as follows:
+The LLM is set up with the following system prompt:
 %s
 """ % "\n\t".join([" "] + SYSTEM_PROMPT.split("\n"))
+
+SYSTEM_MESSAGE = {"role": "system", "content": SYSTEM_PROMPT}
 
 # Defaults
 MEMORY_LENGTH = 50
@@ -28,7 +30,7 @@ st.set_page_config(
 )
 
 if "memory" not in st.session_state:
-    st.session_state.memory = [{"role": "system", "content": SYSTEM_PROMPT}]
+    st.session_state.memory = [SYSTEM_MESSAGE]
     st.session_state.memory_length = MEMORY_LENGTH
     st.session_state.max_response_tokens = MAX_RESPONSE_TOKENS
 
@@ -38,16 +40,9 @@ def _shift_memory():
     memory_length = st.session_state.memory_length
     if memory_length > 0:
         st.session_state.memory = st.session_state.memory[-memory_length:]
-        st.session_state.memory[0] = {
-            "role": "system", "content": SYSTEM_PROMPT}
+        st.session_state.memory[0] = SYSTEM_MESSAGE
     else:
-        st.session_state.memory = [
-            {"role": "system", "content": SYSTEM_PROMPT}]
-
-
-def _add_to_memory(_prompt, role):
-    # append to memory and remove oldest if necessary
-    st.session_state.memory.append({"role": role, "content": _prompt})
+        st.session_state.memory = [SYSTEM_MESSAGE]
 
 
 def _prepend_message_history(_prompt):
@@ -56,13 +51,6 @@ def _prepend_message_history(_prompt):
     messages = st.session_state.memory + [new_user_message]
     memory_length = st.session_state.memory_length
     return messages[-memory_length:]
-
-
-def _clean_gen_text(gen_text):
-    # Clean up italics. Non-streaming only.
-    gen_text = re.sub(r'\*[^*]+\*', '', gen_text)
-    gen_text = re.sub(r'\s{2,}', ' ', gen_text)
-    return gen_text.strip()
 
 
 def _check_address():
@@ -88,10 +76,10 @@ def get_bot_response(user_input):
     try:
         r = requests.post(url, json=params, headers=headers, timeout=30)
         r.raise_for_status()
-    except Exception:
+    except:  # pylint: disable=bare-except
         st.error(f"Failed to get response from {url}")
     else:
-        return _clean_gen_text(r.json()["content"])
+        return r.json()
 
 
 def stream_bot_response(user_input):
@@ -141,18 +129,14 @@ def bot_respond(user_input):
 
     # Add assistant response to chat log
     if response:
-        st.session_state.memory.append(
-            {"role": "assistant", "content": response}
-        )
+        st.session_state.memory.append(response)
 
         # "Easter eggs"
-        if " balloons " in response:
+        if " balloons " in response["content"]:
             st.balloons()
-        if " snow " in response:
+        if " snow " in response["content"]:
             st.snow()
 
-        _add_to_memory(user_input, "user")
-        _add_to_memory(response, "bot")
         _shift_memory()
 
 
@@ -164,28 +148,23 @@ STREAM = st.toggle("Streaming Mode", False)
 with st.sidebar:
     st.title("Settings")
     st.text_input("API Address", CHBOT_URL, key="bot_address")
-    st.slider("Memory Length", 0, 99, MEMORY_LENGTH,
-              key="memory_length", on_change=_shift_memory)
-    st.slider("Max Response Tokens", 50, 500,
-              MAX_RESPONSE_TOKENS, key="max_response_tokens")
+    st.slider("Memory Length", 0, 99, MEMORY_LENGTH, key="memory_length", on_change=_shift_memory)
+    st.slider("Max Response Tokens", 50, 500, MAX_RESPONSE_TOKENS, key="max_response_tokens")
     logo = Image.open("./app_assets/logo.png")
     st.caption("AI powered by")
     st.image(logo, output_format="PNG")
 
-st.title(
-    "Curtis 🤖",
-    help=INFO_STRING,
-)
+st.title("Curtis 🤖", help=INFO_STRING)
 
 # Display chat messages from history on app rerun
-for message in st.session_state.memory:
+for message in st.session_state.memory[0:]:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
 # React to user input
-if prompt := st.chat_input("Message the bot..."):
+if user_input := st.chat_input("Message the bot..."):
     # Add user message to chat log
     if err := _check_address():
         st.error(err)
     else:
-        bot_respond(prompt)
+        bot_respond(user_input)
