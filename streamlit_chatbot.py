@@ -157,7 +157,7 @@ with st.sidebar:
 st.title("Curtis 🤖", help=INFO_STRING)
 
 # Display chat messages from history on app rerun
-for message in st.session_state.memory[0:]:
+for message in st.session_state.memory[1:]:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
