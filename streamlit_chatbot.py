@@ -141,7 +141,7 @@ def bot_respond(user_input):
 
     # Add assistant response to chat log
     if response:
-        st.session_state.messages.append(
+        st.session_state.memory.append(
             {"role": "assistant", "content": response}
         )
 
@@ -178,7 +178,7 @@ st.title(
 )
 
 # Display chat messages from history on app rerun
-for message in st.session_state.messages:
+for message in st.session_state.memory:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
