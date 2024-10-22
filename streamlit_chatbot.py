@@ -62,12 +62,13 @@ def _check_address():
 def get_bot_response(user_input):
     """This is the for non-streaming"""
     messages = _prepend_message_history(user_input)
+    print(f"Sending messages[-3:] = {messages[-3:]}")
 
     headers = {"x-api-key": CHBOT_TOKEN}
 
     params = {
         "messages": messages,
-        "max_new_tokens": st.session_state.max_response_tokens,
+        "model_kwargs": {"max_new_tokens": st.session_state.max_response_tokens},
     }
     ################################
     # POST REQUEST TO FUNCTION SERVE
@@ -76,38 +77,41 @@ def get_bot_response(user_input):
     try:
         r = requests.post(url, json=params, headers=headers, timeout=30)
         r.raise_for_status()
-    except:  # pylint: disable=bare-except
+    except Exception as e:  # pylint: disable=broad-except
         st.error(f"Failed to get response from {url}")
+        print(e)
     else:
-        return r.json()
+        r_json = r.json()
+        print(f"Response: {r_json}")
+        return r_json
 
 
-def stream_bot_response(user_input):
-    """This is for streaming"""
-    messages = _prepend_message_history(user_input)
+# def stream_bot_response(user_input):
+#     """This is for streaming"""
+#     messages = _prepend_message_history(user_input)
 
-    headers = {"x-api-key": CHBOT_TOKEN}
+#     headers = {"x-api-key": CHBOT_TOKEN}
 
-    params = {
-        "messages": messages,
-        "max_new_tokens": st.session_state.max_response_tokens,
-    }
-    ################################
-    # POST REQUEST TO FUNCTION SERVE
-    ################################
-    url = st.session_state.bot_address.strip() + "/stream"
-    try:
-        r = requests.post(url, json=params, headers=headers,
-                          stream=True, timeout=120)
-        r.raise_for_status()
-    except Exception:
-        st.error("Failed to stream response. Invalid address?")
-    else:
-        for t in r.iter_content(chunk_size=None):
-            s = t.decode()
-            s = s.replace('�', '')  # streaming breaks emojis 😭
-            if s:
-                yield s
+#     params = {
+#         "messages": messages,
+#         "max_new_tokens": st.session_state.max_response_tokens,
+#     }
+#     ################################
+#     # POST REQUEST TO FUNCTION SERVE
+#     ################################
+#     url = st.session_state.bot_address.strip() + "/stream"
+#     try:
+#         r = requests.post(url, json=params, headers=headers,
+#                           stream=True, timeout=120)
+#         r.raise_for_status()
+#     except Exception:
+#         st.error("Failed to stream response. Invalid address?")
+#     else:
+#         for t in r.iter_content(chunk_size=None):
+#             s = t.decode()
+#             s = s.replace('�', '')  # streaming breaks emojis 😭
+#             if s:
+#                 yield s
 
 
 def bot_respond(user_input):
@@ -117,8 +121,9 @@ def bot_respond(user_input):
 
     # Display assistant response in chat message container
     if STREAM:
-        with st.chat_message("assistant"):
-            response = st.write_stream(stream_bot_response(user_input))
+        # with st.chat_message("assistant"):
+            # response = st.write_stream(stream_bot_response(user_input))
+        pass
     else:
         with st.spinner("Generating..."):
             response = get_bot_response(user_input)
@@ -129,18 +134,19 @@ def bot_respond(user_input):
 
     # Add assistant response to chat log
     if response:
+        print(f"appending response: {response}")
         st.session_state.memory.append(response)
 
         # "Easter eggs"
-        if " balloons " in response["content"]:
+        if " balloons " in response:
             st.balloons()
-        if " snow " in response["content"]:
+        if " snow " in response:
             st.snow()
 
         _shift_memory()
 
 
-STREAM = st.toggle("Streaming Mode", False)
+STREAM = False  # st.toggle("Streaming Mode", False)
 
 # BASED ON
 # https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps#build-a-simple-chatbot-gui-with-streaming
