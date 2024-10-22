@@ -32,20 +32,22 @@ if "memory" not in st.session_state:
     st.session_state.memory_length = MEMORY_LENGTH
     st.session_state.max_response_tokens = MAX_RESPONSE_TOKENS
 
+
 def _shift_memory():
     # shift the memory buffer to size
     memory_length = st.session_state.memory_length
     if memory_length > 0:
         st.session_state.memory = st.session_state.memory[-memory_length:]
-        st.session_state.memory[0] = {"role": "system", "content": SYSTEM_PROMPT}
+        st.session_state.memory[0] = {
+            "role": "system", "content": SYSTEM_PROMPT}
     else:
-        st.session_state.memory = [{"role": "system", "content": SYSTEM_PROMPT}]
+        st.session_state.memory = [
+            {"role": "system", "content": SYSTEM_PROMPT}]
 
 
 def _add_to_memory(_prompt, role):
     # append to memory and remove oldest if necessary
-    memory = st.session_state.memory
-    memory.append({"role": role, "content": _prompt})
+    st.session_state.memory.append({"role": role, "content": _prompt})
 
 
 def _prepend_message_history(_prompt):
@@ -121,7 +123,6 @@ def stream_bot_response(user_input):
 
 
 def bot_respond(user_input):
-    st.session_state.messages.append({"role": "user", "content": user_input})
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(user_input)
@@ -175,11 +176,6 @@ st.title(
     "Curtis 🤖",
     help=INFO_STRING,
 )
-
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-    st.session_state.memory = []
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
