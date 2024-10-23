@@ -31,7 +31,6 @@ st.set_page_config(
 
 if "memory" not in st.session_state:
     st.session_state.memory = [SYSTEM_MESSAGE]
-    st.session_state.max_response_tokens = MAX_RESPONSE_TOKENS
 
 if len(st.session_state.get("memory", [])) > MAX_MEMORY:
     st.session_state.memory = [SYSTEM_MESSAGE] + st.session_state.memory[-MAX_MEMORY+1:]
