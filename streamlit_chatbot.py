@@ -62,7 +62,7 @@ def get_bot_response(_user_input):
     ################################
     # POST REQUEST TO FUNCTION SERVE
     ################################
-    url = st.session_state.bot_address.strip() + "/generate"
+    url = st.session_state.bot_address.strip() + "/generate_message"
     try:
         r = requests.post(url, json=params, headers=headers, timeout=30)
         r.raise_for_status()
