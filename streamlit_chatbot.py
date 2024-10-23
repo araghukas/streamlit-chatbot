@@ -119,7 +119,7 @@ def bot_respond(_user_input):
 
         if response:
             with st.chat_message("assistant"):
-                st.markdown(response)
+                st.markdown(response["content"])
 
     # Add assistant response to chat log
     if response:
@@ -128,9 +128,9 @@ def bot_respond(_user_input):
         st.session_state.memory.append(response)
 
         # "Easter eggs"
-        if " balloons " in response:
+        if " balloons " in response["content"]:
             st.balloons()
-        if " snow " in response:
+        if " snow " in response["content"]:
             st.snow()
 
 
