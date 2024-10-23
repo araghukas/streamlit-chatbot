@@ -19,7 +19,7 @@ The LLM is set up with the following system prompt:
 SYSTEM_MESSAGE = {"role": "system", "content": SYSTEM_PROMPT}
 
 # Defaults
-MEMORY_LENGTH = 50
+MAX_MEMORY = 1000
 MAX_RESPONSE_TOKENS = 275
 CHBOT_URL = st.secrets["CHBOT_URL"]
 CHBOT_TOKEN = st.secrets["CHBOT_TOKEN"]
@@ -31,26 +31,16 @@ st.set_page_config(
 
 if "memory" not in st.session_state:
     st.session_state.memory = [SYSTEM_MESSAGE]
-    st.session_state.memory_length = MEMORY_LENGTH
     st.session_state.max_response_tokens = MAX_RESPONSE_TOKENS
 
-
-def _shift_memory():
-    # shift the memory buffer to size
-    memory_length = st.session_state.memory_length
-    if memory_length > 0:
-        st.session_state.memory = st.session_state.memory[-memory_length:]
-        st.session_state.memory[0] = SYSTEM_MESSAGE
-    else:
-        st.session_state.memory = [SYSTEM_MESSAGE]
-
+if len(st.session_state.get("memory", [])) > MAX_MEMORY:
+    st.session_state.memory = [SYSTEM_MESSAGE] + st.session_state.memory[-MAX_MEMORY+1:]
 
 def _prepend_message_history(_prompt):
     # insert user message into llama prompt template
     new_user_message = {"role": "user", "content": _prompt}
     messages = st.session_state.memory + [new_user_message]
-    memory_length = st.session_state.memory_length
-    return messages[-memory_length:]
+    return messages
 
 
 def _check_address():
@@ -59,9 +49,9 @@ def _check_address():
     return None
 
 
-def get_bot_response(user_input):
+def get_bot_response(_user_input):
     """This is the for non-streaming"""
-    messages = _prepend_message_history(user_input)
+    messages = _prepend_message_history(_user_input)
     print(f"Sending messages[-3:] = {messages[-3:]}")
 
     headers = {"x-api-key": CHBOT_TOKEN}
@@ -114,10 +104,10 @@ def get_bot_response(user_input):
 #                 yield s
 
 
-def bot_respond(user_input):
+def bot_respond(_user_input):
     # Display user message in chat message container
     with st.chat_message("user"):
-        st.markdown(user_input)
+        st.markdown(_user_input)
 
     # Display assistant response in chat message container
     if STREAM:
@@ -126,7 +116,7 @@ def bot_respond(user_input):
         pass
     else:
         with st.spinner("Generating..."):
-            response = get_bot_response(user_input)
+            response = get_bot_response(_user_input)
 
         if response:
             with st.chat_message("assistant"):
@@ -135,6 +125,7 @@ def bot_respond(user_input):
     # Add assistant response to chat log
     if response:
         print(f"appending response: {response}")
+        st.session_state.memory.append({"role": "user", "content": _user_input})
         st.session_state.memory.append(response)
 
         # "Easter eggs"
@@ -142,8 +133,6 @@ def bot_respond(user_input):
             st.balloons()
         if " snow " in response:
             st.snow()
-
-        _shift_memory()
 
 
 STREAM = False  # st.toggle("Streaming Mode", False)
@@ -154,7 +143,6 @@ STREAM = False  # st.toggle("Streaming Mode", False)
 with st.sidebar:
     st.title("Settings")
     st.text_input("API Address", CHBOT_URL, key="bot_address")
-    st.slider("Memory Length", 0, 99, MEMORY_LENGTH, key="memory_length", on_change=_shift_memory)
     st.slider("Max Response Tokens", 50, 500, MAX_RESPONSE_TOKENS, key="max_response_tokens")
     logo = Image.open("./app_assets/logo.png")
     st.caption("AI powered by")
