@@ -1,3 +1,5 @@
 streamlit-keyup==0.2.4
+st-link-analysis==0.3.0
 pydeck==0.9.1
 pillow==10.4.0
+https://frosty-test.s3.us-east-1.amazonaws.com/agot-0.0.1%2Bcallbacks.tar.gz
