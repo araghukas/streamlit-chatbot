@@ -1,8 +1,8 @@
 """AGoT event handlers"""
 import itertools
 
-from _models import EdgeData, GraphData, MultiGraphData, NodeData, AnswerSchema
-from _state import update_state_file
+from agot_graph._models import EdgeData, GraphData, MultiGraphData, NodeData, AnswerSchema
+from agot_graph._state import update_state_file
 
 EVENT_ICONS = {
     "add_task": "🔵",

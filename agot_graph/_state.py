@@ -6,7 +6,7 @@ import time
 from pathlib import Path
 
 import streamlit as st
-from _models import MultiGraphData
+from agot_graph._models import MultiGraphData
 
 CWD = Path(__file__).parent.absolute()
 
