@@ -7,10 +7,10 @@ import time
 from uuid import uuid4
 
 import streamlit as st
-from _events import add_agot_node
-from _models import AnswerSchema, EdgeData, MultiGraphData
-from _state import load_latest_state
-from _styles import (BORDER_COLORS, EDGE_STYLES, FINAL_ANSWER_TEMPLATE,
+from agot_graph._events import add_agot_node
+from agot_graph._models import AnswerSchema, EdgeData, MultiGraphData
+from agot_graph._state import load_latest_state
+from agot_graph._styles import (BORDER_COLORS, EDGE_STYLES, FINAL_ANSWER_TEMPLATE,
                      style_nodes)
 from agot import AGoT
 from multi_agent_llm import OpenAILLM

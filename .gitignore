@@ -1,9 +1,12 @@
-*
-!.gitignore
-!requirements.txt
-!*.py
-!*.png
-!app_assets/*
-!.streamlit/*
+.vscode/
 
-!*/
+.mypy_cache/
+__pycache__/
+
+agot_graph/states
+
+*.egg-info/
+build/
+build/lib/
+
+.DS_Store
