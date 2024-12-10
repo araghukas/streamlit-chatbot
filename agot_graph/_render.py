@@ -6,12 +6,27 @@ from st_link_analysis import st_link_analysis
 from streamlit.components.v1 import html
 
 from agot_graph._models import EdgeData, MultiGraphData
-from agot_graph._styles import (EDGE_STYLES, FINAL_ANSWER_TEMPLATE, ST_COLORS,
-                                style_nodes)
+from agot_graph._styles import EDGE_STYLES, ST_COLORS, style_nodes
 
 GRAPH_LAYOUT = "cose"
 RENDER_INTERVAL = 1  # seconds
 FONT_COLOR = ST_COLORS["st-white"]
+
+FINAL_ANSWER_TEMPLATE = (
+    """
+{content}
+
+---
+
+<details>
+{long_content}
+<br>
+<span style="color: grey; font-style: italic">
+graph backend: '{model}'
+</span>
+</details>
+"""
+)
 
 
 @st.dialog("✅ Final Answer", width="large")
@@ -31,6 +46,41 @@ def display_final_answer(content: str = "", long_content: str = ""):
         )
     else:
         st.write("No final answer available. Try asking a question.")
+
+
+SAMPLE_QUESTIONS = (
+"""
+
+What is the third letter of the middle name of the 32nd president of the United States?
+
+✅ *Franklin Delano Roosevelt was the 32nd president of the USA. The third letter of his middle name is 'L'.*
+
+(easy)
+
+---
+
+If "I am the walrus" equals "P ht aol dhsybz" and "glass onion" equal "nshzz vupvu", what does "yellow matter custard" equal?
+
+✅ *This is a shift cipher with a shift of 7. The final phrase therefore equals "flssvd thaaly jbzahyk".*
+
+(medium)
+
+---
+
+Let there be a diatomic molecule, with elements X and Y, that can be modeled using the quantum rotation-vibration model (or non-rigid rotor model). If the molecule is in its fundamental state, what momentum should an absorbed photon have, in order for the molecule to switch to the next state with the lowest possible energy?
+
+✅ *The absorbed photon must have momentum of 1.4e-28 Newton-seconds*
+
+(hard)
+"""
+)
+
+
+@st.dialog("💡 Sample Questions", width="large")
+def display_sample_questions():
+    """Show sample questions for running AGoT on."""
+
+    st.markdown(SAMPLE_QUESTIONS)
 
 
 def render_graphs(_graphs: MultiGraphData):

@@ -2,21 +2,6 @@
 
 from st_link_analysis import EdgeStyle, NodeStyle
 
-FINAL_ANSWER_TEMPLATE = (
-    """
-{content}
-
----
-
-<details>
-{long_content}
-<br>
-<span style="color: grey; font-style: italic">
-graph backend: '{model}'
-</span>
-</details>
-"""
-)
 
 BORDER_COLORS = [
     '#ffe119',

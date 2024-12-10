@@ -14,7 +14,8 @@ from st_link_analysis import st_link_analysis
 from agot_graph._events import add_agot_node
 from agot_graph._models import AnswerSchema, MultiGraphData
 from agot_graph._render import (RENDER_INTERVAL, display_final_answer,
-                                render_graphs, render_graphs_text)
+                                display_sample_questions, render_graphs,
+                                render_graphs_text)
 from agot_graph._state import load_latest_state
 from agot_graph._styles import BORDER_COLORS
 
@@ -173,7 +174,7 @@ with st.sidebar:
         key="agot-max-new-tasks"
     )
     st.button(
-        label="show answer",
+        label="Show Answer",
         on_click=lambda: display_final_answer(
             st.session_state.final_content,
             st.session_state.final_content_long,
@@ -209,18 +210,31 @@ if st.session_state.get("raise_key_error", False):
     st.error("Please enter your OpenAI API Key")
     st.session_state["ai-input-box"] = ""
 
-st.text_area(
-    label="AI Input",
-    label_visibility="collapsed",
-    key="ai-input-box",
-    placeholder="Enter your question here...",
-    on_change=_run_agot_wrapper,
-    height=68,
-)
+left_1, right_1 = st.columns([6, 1])
 
-left, right = st.columns([1, 1])
+with left_1:
+    st.text_area(
+        label="AI Input",
+        label_visibility="collapsed",
+        key="ai-input-box",
+        placeholder="Enter your question here...",
+        height=94,
+    )
+with right_1:
+    st.button(
+        label="Run AGoT",
+        on_click=_run_agot_wrapper,
+        use_container_width=True,
+    )
+    st.button(
+        label="Show Samples",
+        on_click=display_sample_questions,
+        use_container_width=True,
+    )
 
-with left:
+left_2, right_2 = st.columns([8, 5])
+
+with left_2:
     # RENDERING
     # ---------
     if st.session_state.first_ever_run:
@@ -237,7 +251,7 @@ with left:
         st.session_state.timestamp = t
     # ---------
 
-with right:
+with right_2:
     render_graphs_text(_graphs=_graphs)
 
 time.sleep(REFRESH_INTERVAL)
