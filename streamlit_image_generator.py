@@ -54,7 +54,7 @@ left, middle, last = st.columns([1, 10, 1])
 # Sidebar for settings
 with st.sidebar:
     st.title("Settings")
-    st.text_input("API Address", IMGEN_URL, key="api_address")
+    # st.text_input("API Address", IMGEN_URL, key="api_address")
     logo = Image.open("./app_assets/logo.png")
     st.caption("AI powered by")
     st.image(logo, output_format="PNG")
