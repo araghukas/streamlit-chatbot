@@ -80,7 +80,7 @@ with middle:
                 st.image(
                     img,
                     caption=user_prompt,
-                    use_column_width=False,
+                    use_container_width=False,
                     output_format="JPEG",
                     width=500,
                 )
