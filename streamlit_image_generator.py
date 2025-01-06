@@ -15,6 +15,7 @@ SEED = 2
 IMGEN_URL = st.secrets["IMGEN_URL"]
 IMGEN_TOKEN = st.secrets["IMGEN_TOKEN"]
 
+st.session_state["api_address"] = IMGEN_URL
 
 def _check_address():
     if not st.session_state.get("api_address"):
